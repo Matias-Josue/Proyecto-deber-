@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-// Definición del Record con 4 atributos (mínimo requerido: 3)
 record Producto(String codigo, String nombre, double precio, int stock) {}
 
         void main() {
@@ -21,13 +20,12 @@ record Producto(String codigo, String nombre, double precio, int stock) {}
                 System.out.println("3. Salir");
                 System.out.print("Seleccione una opción: ");
 
-                // Validación de entrada numérica para el menú
                 if (scanner.hasNextInt()) {
                     opcion = scanner.nextInt();
-                    scanner.nextLine(); // Limpiar el buffer
+                    scanner.nextLine();
                 } else {
                     System.out.println(" Error: Debe ingresar un número entero válido.");
-                    scanner.nextLine(); // Limpiar entrada incorrecta
+                    scanner.nextLine();
                     continue;
                 }
 
@@ -40,7 +38,6 @@ record Producto(String codigo, String nombre, double precio, int stock) {}
 
                         System.out.println("\n--- REGISTRO DE NUEVO PRODUCTO ---");
 
-                        // Validación de código no vacío
                         String codigo;
                         while (true) {
                             System.out.print("Ingrese código del producto: ");
@@ -49,7 +46,6 @@ record Producto(String codigo, String nombre, double precio, int stock) {}
                             System.out.println(" El código no puede estar vacío.");
                         }
 
-                        // Validación de nombre no vacío
                         String nombre;
                         while (true) {
                             System.out.print("Ingrese nombre del producto: ");
@@ -58,7 +54,6 @@ record Producto(String codigo, String nombre, double precio, int stock) {}
                             System.out.println(" El nombre no puede estar vacío.");
                         }
 
-                        // Validación de precio (mayor o igual a 0)
                         double precio = -1;
                         while (precio < 0) {
                             System.out.print("Ingrese precio unitario ($): ");
@@ -70,10 +65,9 @@ record Producto(String codigo, String nombre, double precio, int stock) {}
                             } else {
                                 System.out.println(" Valor inválido. Ingrese un número.");
                             }
-                            scanner.nextLine(); // Limpiar buffer
+                            scanner.nextLine();
                         }
 
-                        // Validación de stock (entero mayor o igual a 0)
                         int stock = -1;
                         while (stock < 0) {
                             System.out.print("Ingrese cantidad en stock: ");
@@ -85,10 +79,9 @@ record Producto(String codigo, String nombre, double precio, int stock) {}
                             } else {
                                 System.out.println(" Valor inválido. Ingrese un número entero.");
                             }
-                            scanner.nextLine(); // Limpiar buffer
+                            scanner.nextLine();
                         }
 
-                        // Almacenamiento en el arreglo tradicional
                         productos[cantidadProductos] = new Producto(codigo, nombre, precio, stock);
                         cantidadProductos++;
                         System.out.println(" ¡Producto registrado exitosamente!");
